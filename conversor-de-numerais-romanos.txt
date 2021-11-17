@@ -1,0 +1,20 @@
+function convertToRoman(num) {
+  var vaNum = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+  var vaRom = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+  var i = 0
+  var resposta = ''
+  while(num > 0){
+    if (num >= vaNum[i]){
+      resposta = resposta + vaRom[i]
+      num -= vaNum[i]
+    }else {
+      i++
+    }
+  }
+
+
+ console.log(resposta)
+ return resposta;
+}
+
+convertToRoman(36);
