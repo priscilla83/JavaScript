@@ -1,0 +1,24 @@
+function palindrome(str) {
+  const replaceSpecialChars = (str) => {
+	return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove acentos
+		.replace(/([^\w]+|\s+|\_+|\1+)/g, '') // Substitui espaço e outros caracteres vazio
+		.replace(/\-\-+/g, '')	// Substitui multiplos hífens por vazio ''
+		.replace(/(^-+|-+$)/, '') // Remove hífens extras do final ou do inicio da string
+    .replace(/\' '+/g)
+    
+}
+  str = str.trim()
+  str = str.toLowerCase()
+  str = replaceSpecialChars(str)
+  var reverso = str.split("").reverse().join("").trim()
+  console.log(str, reverso)
+  if (reverso === str){
+    return true;
+  }else {
+    return false
+  }
+  
+  
+}
+
+palindrome("eye");
