@@ -1,0 +1,58 @@
+function rot13(str) {
+  var ref1 = ['A','B','C','D','E','F','G']
+  var conv1 = ['N','O','P','Q','R','S','T']
+  var ref2 = ['H','I','J','K','L','M']
+  var conv2 = ['U','V','W','X','Y','Z']
+  var espaco = [' ','?','!','.']
+  var id = 0
+  var id1 = 0
+  var id2 = 0
+  var count = str.length
+  var resposta = ''
+  str = str.toUpperCase()
+  str = str.split("")
+  
+  while(count > 0){
+    if (str[id] == ref1[id1]){
+      resposta += conv1[id1]
+      id++
+      id1 = 0
+      id2 = 0
+      count--
+    }else if (str[id] == ref2[id1]) {
+      resposta += conv2[id1] 
+      id++
+      id1 = 0
+      id2 = 0
+      count--
+    }else if (str[id] == conv1[id1]){
+      resposta += ref1[id1]
+      id++
+      id1 = 0
+      id2 = 0
+      count--
+    }else if (str[id] == conv2[id1]){
+      resposta += ref2[id1]
+      id++
+      id1 = 0
+      id2 = 0
+      count--
+    }else if (str[id]== espaco[id2]){
+      resposta += espaco[id2]
+      id++
+      id1 = 0
+      id2 = 0
+      count--
+    } else {
+      id1++
+      id2++
+     
+    }
+  //console.log(resposta)
+  
+  }
+  console.log(resposta)
+  return resposta;
+}
+
+rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.");
